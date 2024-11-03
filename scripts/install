@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if scripts/build; then
+    # If build is successful, move the binary
+    if mv main /usr/local/bin/vscode; then
+        echo "Installation completed successfully."
+    else
+        echo "Error: Failed to move the binary file to /usr/local/bin/vscode."
+        exit 1
+    fi
+else
+    echo "Error: Failed to build the project."
+    exit 1
+fi
